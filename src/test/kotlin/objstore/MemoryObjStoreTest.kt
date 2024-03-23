@@ -1,7 +1,7 @@
 package objstore
 
-import com.github.yundom.objstore.MemoryObjStore
-import com.github.yundom.objstore.ObjStore
+import com.github.yundom.objstore.core.MemoryObjStore
+import com.github.yundom.objstore.core.ObjStore
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

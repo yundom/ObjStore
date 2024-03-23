@@ -1,6 +1,6 @@
 package objstore.fake
 
-import com.github.yundom.objstore.ObjStore
+import com.github.yundom.objstore.core.ObjStore
 
 class FakeObjStore: ObjStore<String, String> {
     private val store = mutableMapOf<String, String>()

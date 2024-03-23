@@ -1,4 +1,4 @@
-package com.github.yundom.objstore
+package com.github.yundom.objstore.core
 
 class MemoryObjStore<K, V>: ObjStore<K, V> {
 

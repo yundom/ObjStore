@@ -1,7 +1,7 @@
 package com.github.yundom.objstore.commands
 
 import com.github.yundom.command.BaseCommand
-import com.github.yundom.objstore.ObjStore
+import com.github.yundom.objstore.core.ObjStore
 
 class SetCommand(
     private val objStore: ObjStore<String, String>,

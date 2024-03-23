@@ -1,4 +1,4 @@
-package com.github.yundom.objstore
+package com.github.yundom.objstore.core
 
 interface ObjStore<K, V> {
     /**
