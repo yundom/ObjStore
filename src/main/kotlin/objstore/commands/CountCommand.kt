@@ -2,7 +2,6 @@ package com.github.yundom.objstore.commands
 
 import com.github.yundom.command.BaseCommand
 import com.github.yundom.objstore.core.ObjStore
-import com.github.yundom.objstore.cli.Cli
 
 class CountCommand(
     private val objStore: ObjStore<String, String>,
