@@ -15,11 +15,12 @@
 - [x] Integration tests.
 
 ## How to run
-Method 1: Hit the run button on the `main` function in IntelliJ IDEA
+**Method 1: Hit the run button on the `main` function in IntelliJ IDEA**
 
 <img width="470" alt="Screenshot 2024-03-24 at 15 43 55" src="https://github.com/yundom/ObjStore/assets/619465/3a719dd5-361d-4970-bed2-bf9c8da15874">
 
-Method 2: Using gradlew
+**Method 2: Run on the terminal**
+
 Build the project
 ```
 ./gradlew build
