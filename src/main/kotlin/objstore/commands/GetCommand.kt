@@ -13,7 +13,7 @@ class GetCommand(
             if (it != null) {
                 param.onMessage(it)
             } else {
-                param.onMessage("Key not set")
+                param.onMessage("key not set")
             }
         }
     }
