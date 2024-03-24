@@ -57,6 +57,7 @@ private fun Command.exec(onPrompt: (String) -> Boolean, onExecuted: () -> Unit) 
     if (this is Confirmable) {
         onPrompt(prompt()).also { confirm ->
             if (confirm) {
+                execute()
                 onExecuted()
             }
         }

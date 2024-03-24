@@ -33,6 +33,6 @@ class GetCommandTest {
 
         command.execute()
 
-        assertEquals("Key not set", message)
+        assertEquals("key not set", message)
     }
 }

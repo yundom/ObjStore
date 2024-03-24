@@ -36,7 +36,7 @@ class CliAppIntegrationTest {
             "GET foo"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "123"
@@ -50,7 +50,7 @@ class CliAppIntegrationTest {
             "GET foo"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "key not set"
@@ -67,7 +67,7 @@ class CliAppIntegrationTest {
             "COUNT 456"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "2",
@@ -90,7 +90,7 @@ class CliAppIntegrationTest {
             "GET foo"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "123",
@@ -117,7 +117,7 @@ class CliAppIntegrationTest {
             "COMMIT"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "456",
@@ -148,7 +148,7 @@ class CliAppIntegrationTest {
             "GET foo"
         )
 
-        inputs.forEach { app.parse(it) }
+        inputs.forEach { app.parse(it) { true } }
 
         assertEquals(listOf(
             "2",
