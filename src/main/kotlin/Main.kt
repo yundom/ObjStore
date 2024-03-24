@@ -13,7 +13,10 @@ fun main() {
             break
         }
 
-        if (app.parse(input).not()) {
+        if (app.parse(input) { message ->
+            print("$message (yes) or (no)> ")
+            readln().equals("yes", ignoreCase = true)
+        }.not()) {
             output("Unknown command: $input")
         }
     }

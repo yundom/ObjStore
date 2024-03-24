@@ -12,7 +12,7 @@ class TransactionalExecutor(private val onMessage: (String) -> Unit = {}): Execu
 
     private var history: MutableList<Command> = mutableListOf()
 
-    override fun execute(command: Command) {
+    override fun execute(command: Command, onPrompt: (String) -> Boolean) {
         when (command) {
             is TransactionBegin -> {
                 transactionStackCount++
@@ -20,12 +20,14 @@ class TransactionalExecutor(private val onMessage: (String) -> Unit = {}): Execu
             }
             is TransactionRollback -> {
                 if (transactionStackCount > 0) {
-                    while (history.isNotEmpty()) {
-                        val prevCmd = history.removeLast()
-                        prevCmd.undo()
-                        if (prevCmd is TransactionBegin) {
-                            transactionStackCount--
-                            break
+                    command.exec(onPrompt) {
+                        while (history.isNotEmpty()) {
+                            val prevCmd = history.removeLast()
+                            prevCmd.undo()
+                            if (prevCmd is TransactionBegin) {
+                                transactionStackCount--
+                                break
+                            }
                         }
                     }
                 } else {
@@ -34,16 +36,32 @@ class TransactionalExecutor(private val onMessage: (String) -> Unit = {}): Execu
             }
             is TransactionCommit -> {
                 if (transactionStackCount > 0) {
-                    history.add(command)
-                    transactionStackCount--
+                    command.exec(onPrompt) {
+                        history.add(command)
+                        transactionStackCount--
+                    }
                 } else {
                     onMessage("no transaction")
                 }
             }
             else -> {
-                command.execute()
-                history.add(command)
+                command.exec(onPrompt) {
+                    history.add(command)
+                }
             }
         }
+    }
+}
+
+private fun Command.exec(onPrompt: (String) -> Boolean, onExecuted: () -> Unit) {
+    if (this is Confirmable) {
+        onPrompt(prompt()).also { confirm ->
+            if (confirm) {
+                onExecuted()
+            }
+        }
+    } else {
+        execute()
+        onExecuted()
     }
 }

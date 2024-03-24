@@ -2,11 +2,12 @@ package com.github.yundom.objstore.commands
 
 import com.github.yundom.command.BaseCommand
 import com.github.yundom.objstore.core.ObjStore
+import com.github.yundom.objstore.executor.Confirmable
 
 class DeleteCommand(
     private val objStore: ObjStore<String, String>,
     private val param: Param,
-): BaseCommand() {
+): BaseCommand(), Confirmable {
     private var oldValue: String? = null
 
     override fun execute() {
@@ -18,4 +19,8 @@ class DeleteCommand(
     }
 
     data class Param(val key: String)
+
+    override fun prompt(): String {
+        return "Are you sure?"
+    }
 }

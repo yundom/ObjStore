@@ -7,9 +7,9 @@ class CliApp(
     private val executor: Executor,
     private val parser: CommandLineParser,
 ) {
-    fun parse(input: String): Boolean {
-        return parser.parse(input)?.also {
-            executor.execute(it)
+    fun parse(input: String, onPrompt: (String) -> Boolean): Boolean {
+        return parser.parse(input)?.also { command ->
+            executor.execute(command, onPrompt)
         } != null
     }
 }
