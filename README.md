@@ -1,0 +1,9 @@
+- [x] Basic commands such as `SET`, `GET`, `DELETE` and `COUNT`.
+- [x] Transactional commands, such as `BEGIN`, `COMMIT` and `ROLLBACK`.
+- [x] Support nested transactions and rollback.
+- [x] Show alerts before executing critical command.
+- [x] Extendable interfaces.
+- [x] No dependency to any 3rd-party lib.
+- [x] CLI interface for input and output.
+- [x] Unit tests.
+- [x] Integration tests.
