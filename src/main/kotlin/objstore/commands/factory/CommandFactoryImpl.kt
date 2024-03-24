@@ -1,11 +1,11 @@
 package com.github.yundom.objstore.commands.factory
 
 import com.github.yundom.command.Command
-import com.github.yundom.objstore.core.MemoryObjStore
 import com.github.yundom.objstore.commands.*
+import com.github.yundom.objstore.core.ObjStore
 
 class CommandFactoryImpl(
-    private val objStore: MemoryObjStore<String, String>,
+    private val objStore: ObjStore<String, String>,
     private val onMessage: (String) -> Unit = {},
 ): CommandFactory {
     override fun create(params: List<String>): Command? {
