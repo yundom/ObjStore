@@ -1,3 +1,7 @@
+## Screenshot
+<img width="577" alt="Screenshot 2024-03-24 at 15 50 21" src="https://github.com/yundom/ObjStore/assets/619465/699e7105-9344-42a7-9d08-9e72b3a3a8f2">
+
+
 ## Checklist
 
 - [x] Basic commands such as `SET`, `GET`, `DELETE` and `COUNT`.
